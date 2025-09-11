@@ -9,7 +9,7 @@ java 发送短信，一行代码接入，可任意切换多家短信通道
 	<artifactId>sms-core</artifactId>
 	<version>1.0</version>
 </dependency>
-<!-- 使用 阿里云的短信服务通道 -->
+<!-- 使用 腾讯云的短信服务通道 -->
 <dependency>
 	<groupId>cn.zvo.sms</groupId>
 	<artifactId>sms-service-tencentcloud</artifactId>
