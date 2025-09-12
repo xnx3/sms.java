@@ -27,7 +27,7 @@ public class Demo {
 		// secretKey
 		String secretKey = "lKj5II5g4d6OTN5e3PgmgNsAF7******";
 		//手机号
-		String phone = "+86158********";
+		String phone = "158********";
 
 		Map<String, String> map = new HashedMap();
 		map.put("region",region);
@@ -38,6 +38,7 @@ public class Demo {
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("signName", "腾讯云短信测试");
 		params.put("templateId", "SMS_154950909");
+		params.put("countryPhoneCode","+86");
 		List<String> templateParams = new ArrayList<>();
 		templateParams.add("验证码");
 		templateParams.add("1234");
