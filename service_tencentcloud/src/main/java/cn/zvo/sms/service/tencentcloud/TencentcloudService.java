@@ -55,6 +55,7 @@ public class TencentcloudService implements ServiceInterface {
 	 * @param templateParams 模板参数，若无模板参数，则设置为空。 模板参数的个数需要与 TemplateId 对应模板的变量个数保持一致。String数组类型
 	 * @param smsSdkAppId 短信 SdkAppId，在 短信控制台 添加应用后生成的实际 SdkAppId，示例如1400006666。
 	 * @param phone 手机号
+	 * @param countryPhoneCode 国际电话区号，例如，拨打中国的电话时，可能需要拨打 +86 作为国际区号。
 	 * @return 结果
 	 */
 	@Override
@@ -64,10 +65,15 @@ public class TencentcloudService implements ServiceInterface {
 		String templateId = params.get("templateId");
 		String templateParam = params.get("templateParam");
 		String smsSdkAppId = params.get("smsSdkAppId");
+		String countryPhoneCode = params.get("countryPhoneCode");
+		if (countryPhoneCode == null || countryPhoneCode.isEmpty()){
+			countryPhoneCode = "+86";
+		}
+
 		try {
 			String[] parsePhone = new String[1];
 			// 手机号
-			parsePhone[0] = phone;
+			parsePhone[0] = countryPhoneCode + phone;
 			Credential credential = new Credential(secretId, secretKey);
 			SmsClient smsClient = new SmsClient(credential, region);
 			SendSmsRequest req = new SendSmsRequest();

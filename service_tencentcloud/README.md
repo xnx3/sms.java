@@ -23,6 +23,7 @@ java 发送短信，一行代码接入，可任意切换多家短信通道
 Map<String, String> params = new HashMap<String, String>();
 params.put("signName", "腾讯云短信测试");
 params.put("templateId", "SMS_154950909");
+params.put("countryPhoneCode","+86");
 List<String> templateParams = new ArrayList<>();
 templateParams.add("验证码");
 templateParams.add("1234");
@@ -39,10 +40,11 @@ params 其map的传参有：
 
 * ```` params.put("signName", "腾讯云短信测试"); ```` 短信签名，必填
 * ```` params.put("templateId", "SMS_154950909"); ```` 短信模板ID，必填
+* ```` params.put("countryPhoneCode", "+86"); ```` 国际电话区号，选填，默认为国内"+86"代码
 * ```` params.put("templateParam", "[\"验证码\",\"1234\",\"5分钟\"]"); ```` 模板参数，必填
 * ```` params.put("smsSdkAppId", "1400006666"); ```` 短信应用ID，必填
 
 **注意事项：**
-* 模板中的每个变量都必须赋值，且取值不能为空
 * 参数顺序必须与模板中的变量顺序一致
 * 腾讯云短信模板变量格式为 {1}、{2}、{3} 等
+* 手机号发送时必须携带国际电话区号
